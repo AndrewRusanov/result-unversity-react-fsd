@@ -1,8 +1,7 @@
-import { Character } from '@/shared/types/Character'
-import { Episode } from '@/shared/types/Episode'
+import { CategoryCard } from '@/entities'
 import { useFetchData } from '@/shared/utils/useFetchData'
 import { Loader } from '@/widgets'
-import { CategoryItem, CategoryType } from '@shared/types/categoriesTypes'
+import { CategoryType } from '@shared/types/categoriesTypes'
 import { FC, useCallback, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './Category.module.scss'
@@ -39,14 +38,6 @@ const Category: FC<Props> = ({ category }) => {
     [isLoading, hasMore]
   )
 
-  const isCharacter = (item: CategoryItem): item is Character => {
-    return (item as Character).image !== undefined
-  }
-
-  const isEpisode = (item: CategoryItem): item is Episode => {
-    return (item as Episode).air_date !== undefined
-  }
-
   if (isLoading) return <Loader text='Загрузка данных...' />
   if (error) return <div>Ошибка загрузки данных: {error}</div>
 
@@ -65,33 +56,7 @@ const Category: FC<Props> = ({ category }) => {
                 to={`/${category}/${item.id}`}
                 className={styles.card}
               >
-                {isCharacter(item) && (
-                  <>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className={styles.image}
-                    />
-                    <h2 className={styles.subtitle}>{item.name}</h2>
-                    <p>Вид: {item.species}</p>
-                  </>
-                )}
-                {isEpisode(item) && (
-                  <>
-                    <h2 className={styles.subtitle}>{item.name}</h2>
-                    <p className={styles.text}>Эпизод: {item.episode}</p>
-                    <p className={styles.text}>Дата выхода: {item.air_date}</p>
-                  </>
-                )}
-                {!isCharacter(item) && !isEpisode(item) && (
-                  <>
-                    <h2 className={styles.subtitle}>{item.name}</h2>
-                    <p className={styles.text}>Тип: {item.type}</p>
-                    <p className={styles.text}>
-                      Измерение: {item.dimension || 'Неизвестно'}
-                    </p>
-                  </>
-                )}
+                <CategoryCard item={item} />
               </NavLink>
             )
           }
@@ -101,33 +66,7 @@ const Category: FC<Props> = ({ category }) => {
               to={`/${category}/${item.id}`}
               className={styles.card}
             >
-              {isCharacter(item) && (
-                <>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className={styles.image}
-                  />
-                  <h2 className={styles.subtitle}>{item.name}</h2>
-                  <p>Вид: {item.species}</p>
-                </>
-              )}
-              {isEpisode(item) && (
-                <>
-                  <h2 className={styles.subtitle}>{item.name}</h2>
-                  <p className={styles.text}>Эпизод: {item.episode}</p>
-                  <p className={styles.text}>Дата выхода: {item.air_date}</p>
-                </>
-              )}
-              {!isCharacter(item) && !isEpisode(item) && (
-                <>
-                  <h2 className={styles.subtitle}>{item.name}</h2>
-                  <p className={styles.text}>Тип: {item.type}</p>
-                  <p className={styles.text}>
-                    Измерение: {item.dimension || 'Неизвестно'}
-                  </p>
-                </>
-              )}
+              <CategoryCard item={item} />
             </NavLink>
           )
         })}
