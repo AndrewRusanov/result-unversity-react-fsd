@@ -1,0 +1,56 @@
+.imageContainer {
+  text-align: center;
+
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.info {
+  .title {
+    color: var(--primary);
+    margin: 0 0 32px 0;
+    font: var(--font-l);
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font: var(--font-m);
+
+    .statusIndicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+
+      &.alive {
+        background-color: var(--status-alive);
+      }
+
+      &.dead {
+        background-color: var(--status-dead);
+      }
+
+      &.unknown {
+        background-color: var(--status-unknown);
+      }
+    }
+  }
+
+  .detailItem {
+    margin-bottom: 16px;
+    font: var(--font-m);
+
+    .detailLabel {
+      font-weight: bold;
+      color: var(--text-primary);
+      margin-right: 8px;
+    }
+  }
+}
