@@ -4,27 +4,27 @@ import { MainLayout } from './layout'
 import { PrivateRoute } from './providers'
 
 const Home = lazy(() =>
-  import('@pages/Home').then(module => ({
+  import('@/pages').then(module => ({
     default: module.Home,
   }))
 )
 const Login = lazy(() =>
-  import('@pages/Login').then(module => ({
+  import('@/pages').then(module => ({
     default: module.Login,
   }))
 )
 const NotFound = lazy(() =>
-  import('@pages/NotFound').then(module => ({
+  import('@/pages').then(module => ({
     default: module.NotFound,
   }))
 )
 const Category = lazy(() =>
-  import('@pages/Category').then(module => ({
+  import('@/pages').then(module => ({
     default: module.Category,
   }))
 )
 const Details = lazy(() =>
-  import('@pages/Details').then(module => ({
+  import('@/pages').then(module => ({
     default: module.Details,
   }))
 )
