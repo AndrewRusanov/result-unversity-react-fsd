@@ -1,0 +1,124 @@
+.errorContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 67.35px);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 32px;
+  overflow: hidden;
+  font: var(--font-m);
+
+  .portalAnimation {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 32px;
+
+    .portalCircle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 8px solid var(--primary);
+      box-shadow: 0 0 30px var(--primary), inset 0 0 30px var(--primary);
+      animation: spin 4s linear infinite;
+    }
+
+    .portalGlow {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        var(--primary-light),
+        transparent 70%
+      );
+      opacity: 0.7;
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+  }
+}
+
+.errorTitle {
+  font: var(--font-xl);
+  color: var(--secondary);
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px var(--secondary-light);
+  letter-spacing: 2px;
+}
+
+.errorCode {
+  font: var(--font-xl);
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-shadow: 0 0 15px var(--primary-light);
+}
+
+.errorMessage {
+  font: var(--font-l);
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.errorSubmessage {
+  font: var(--font-m);
+  margin-bottom: 32px;
+  max-width: 600px;
+  color: var(--secondary-light);
+}
+
+.portalButton {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  padding: 16px 32px;
+  font: var(--font-m);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-light);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
