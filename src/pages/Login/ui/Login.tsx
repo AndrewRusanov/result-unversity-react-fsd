@@ -1,6 +1,5 @@
-import { SignIn } from '@/features/SignIn'
+import { SignIn, SignUp } from '@/features'
 import { SignInFormData } from '@/features/SignIn/ui/SignIn'
-import { SignUp } from '@/features/SignUp'
 import { FormData } from '@/features/SignUp/ui/SignUp'
 import { useAuth } from '@app/providers/AuthProvider'
 import { FC, useState } from 'react'
