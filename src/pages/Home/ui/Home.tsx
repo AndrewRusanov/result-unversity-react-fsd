@@ -11,17 +11,16 @@ const Home = () => {
         Исследуйте мультивселенную с вашими любимыми персонажами, локациями и
         эпизодами популярного сериала "Рик и Морти".
       </p>
-      {/* TODO: добавить ссылки на разные роуты */}
       <div className={styles.explore}>
         <h2 className={styles.start_exploring}>Начни путешествие</h2>
         <div className={styles.links}>
-          <NavLink to='/characters' className={styles.link}>
+          <NavLink to='/character' className={styles.link}>
             Персонажи
           </NavLink>
-          <NavLink to='/locations' className={styles.link}>
+          <NavLink to='/location' className={styles.link}>
             Локации
           </NavLink>
-          <NavLink to='/episodes' className={styles.link}>
+          <NavLink to='/episode' className={styles.link}>
             Эпизоды
           </NavLink>
         </div>

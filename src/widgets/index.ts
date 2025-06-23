@@ -1,5 +1,3 @@
-import { ErrorPage } from './ErrorPage'
-import { Loader } from './Loader'
-import { Navbar } from './Navbar'
-
-export { ErrorPage, Loader, Navbar }
+export * from './ErrorPage'
+export * from './Loader'
+export * from './Navbar'
